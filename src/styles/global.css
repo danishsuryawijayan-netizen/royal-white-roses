@@ -1,0 +1,102 @@
+:root {
+  --rwr-gold: #c9a66b;
+  --rwr-gold-bright: #e6c994;
+  --rwr-burgundy: #541922;
+  --rwr-ivory: #f6f1e6;
+  --rwr-shadow: #0d0907;
+  --rwr-font-serif: Georgia, 'Times New Roman', serif;
+  --rwr-font-sans: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100%;
+  background-color: var(--rwr-shadow);
+  color: var(--rwr-ivory);
+  font-family: var(--rwr-font-sans);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+.rwr-scroll-stage {
+  position: relative;
+  width: 100%;
+  min-height: 220vh;
+}
+
+.rwr-viewport {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+  background: radial-gradient(circle at 50% 42%, #241913 0%, #0d0907 100%);
+  touch-action: pan-y;
+}
+
+.rwr-canvas-layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  cursor: grab;
+}
+
+.rwr-canvas-layer:active {
+  cursor: grabbing;
+}
+
+.rwr-canvas-layer canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.rwr-hud {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: clamp(0.9rem, 2.2vw, 1.6rem);
+  z-index: 10;
+}
+
+.rwr-header {
+  display: flex;
+  align-items: center;
+}
+
+.rwr-title {
+  margin: 0;
+  font-family: var(--rwr-font-serif);
+  font-style: italic;
+  font-size: clamp(1rem, 1.7vw, 1.28rem);
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  color: rgba(246, 241, 230, 0.82);
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.85);
+}
+
+.rwr-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
